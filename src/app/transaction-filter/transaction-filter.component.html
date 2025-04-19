@@ -1,0 +1,87 @@
+<h2 class="m-3">Bank Transactions</h2>
+
+<!-- Filters -->
+<div class="filters">
+  <div class="row my-3 p-3">
+
+    <div class="col-md-3">
+      <input type="number" class="form-control" placeholder="Account ID" [(ngModel)]="accountId" />
+    </div>
+
+    <div class="col-md-3">
+      <select class="form-control" [(ngModel)]="transactionType">
+        <option value="">All Types</option>
+        <option value="deposit">Deposit</option>
+        <option value="withdrawal">Withdrawal</option>
+        <option value="transfer">Transfer</option>
+        <option value="payment">Payment</option>
+      </select>
+    </div>
+
+  <div class="col-md-3">
+    <select [(ngModel)]="status" class="form-control">
+      <option value="">All Status</option>
+      <option value="pending">Pending</option>
+      <option value="completed">Completed</option>
+      <option value="failed">Failed</option>
+    </select>
+  </div>
+
+  <div class="col-md-3">
+    <input type="number" class="form-control" placeholder="Min Amount" [(ngModel)]="minAmount" />
+  </div>
+</div>
+
+<div class="row my-3 p-3">
+  <div class="col-md-4">
+    <input type="number" class="form-control" placeholder="Max Amount" [(ngModel)]="maxAmount" />
+  </div>
+
+  <div class="col-md-4">
+    <input type="date" class="form-control" [(ngModel)]="startDate" />
+  </div>
+
+  <div class="col-md-4">
+    <input type="date" class="form-control" [(ngModel)]="endDate" />
+  </div>
+</div>
+
+<div class="row my-3 p-3">
+  <div class="col-md-6 ">
+    <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-primary" (click)="resetFilters()">Reset</button>
+  </div>
+</div>
+</div>
+
+<!-- Table -->
+<table class="table" *ngIf="transactions.length > 0; else noResults">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Account ID</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tx of transactions">
+      <td>{{ tx.transaction_id }}</td>
+      <td>{{ tx.account_id }}</td>
+      <td>{{ tx.transaction_type }}</td>
+      <td>{{ tx.amount }}</td>
+      <td>{{ tx.status }}</td>
+      <td>{{ tx.transaction_date | date: 'short' }}</td>
+      <td>{{ tx.reference_number }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noResults>
+  <p class="m-3">No transactions found.</p>
+</ng-template>
