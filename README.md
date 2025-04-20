@@ -11,14 +11,14 @@ Steps for project setup:
 Install Angular:
   1. Go to directory folder TransactionBanking.
   2. Command for install angular: npm install @angular/cli@15.
-  3. Then install the npm using npm install.
+  3. Then install the npm using 'npm install'.
 
 Install PostgreDB:
   1. Download the postgreDB from this: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads for windows or mac (verison 17.4) and 
   uncheck the stackbuilder and then install and finish.
   2. Click on intall and then set the password and then port and locale selected by default.
   3. Start the installation.
-  4. Open PgAdmin and enter password and create database "Transactions" by right click on the Database.
+  4. Open PgAdmin App and enter password and create database "Transactions" by right click on the Database.
   5. Open Schemas then Tables and create table and select the Tablespace pg_default.
 
 SQL Shell:
@@ -137,9 +137,9 @@ INSERT INTO transactions (
 
 
 Run Project:
- 1. Angular: Go to TransactionBanking folder and then run the command <ng serve>.
- 2. Node: Go to  TransactionBanking folder and install nodemon for nodeJS server using: npm install --save-dev nodemon then run command "npx nodemon src/app/server.js".  
- 3. Run project localhost:4200. 
+ 1. Angular: Go to TransactionBanking directory in "VS Code" in terminal and then run the command 'ng serve'.
+ 2. Node: Go to TransactionBanking directory in another terminal and install nodemon for nodeJS server using: npm install --save-dev nodemon then run command "npx nodemon src/app/server.js".  
+ 3. Run project using localhost:4200. 
 
 
 
